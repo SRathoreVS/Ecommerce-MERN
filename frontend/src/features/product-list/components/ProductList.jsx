@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, incrementAsync, selectCount } from "./ProductListSlice";
+import { increment, incrementAsync, selectCount } from "../ProductSlice";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import {
   Dialog,
@@ -22,6 +22,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 
 //category List
 const sortOptions = [
@@ -392,6 +393,7 @@ export default function ProductList() {
                     <div className="mx-auto max-w-6xl px-4 py-0 sm:px-6 lg:px-8">
                       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                         {products.map((product) => (
+                          <Link to= "/product-detail">
                           <div
                             key={product.id}
                             className="group relative rounded-lg border border-gray-200 bg-white p-4 shadow-md"
@@ -421,6 +423,7 @@ export default function ProductList() {
                               </p>
                             </div>
                           </div>
+                          </Link>
                         ))}
                       </div>
                     </div>
